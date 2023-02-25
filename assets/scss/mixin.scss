@@ -1,0 +1,19 @@
+// mixin
+// mixin gibt es mit und ohne parameter
+
+// @mixin text-style() {
+//     text-align: center;
+//     font-size: 30px;
+//     font-family: Helvetica;
+//     color: red;
+// }
+
+@mixin text-style($ta, $fz: 60px, $ff, $fc) {
+    text-align: $ta;
+    font-size: $fz;
+    font-family: $ff;
+    color: $fc;
+}
+
+Footer © 2022 GitHub,
+Inc. Footer navigation Terms Privacy Security color: $fc;

@@ -1,0 +1,112 @@
+/*
+generals
+*/
+
+// terminal sass --watch input.scss und output.css (mit jeweiligen dateipfaden) immer bei start ausführen
+
+
+/*========================
+        generals
+=========================*/
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+@import 'mixin.scss';
+@import "variable.scss";
+
+/*========================
+        header
+=========================*/
+
+// nesting
+header {
+    background-color: #c3c3c3;
+    padding: 2vh 0;
+
+    nav {
+        ul {
+            list-style: none;
+            display: flex;
+            justify-content: space-evenly;
+
+            li {
+                a {
+                    text-decoration: none;
+                    color: black;
+                    font-size: $fz-small;
+
+                    &:hover {
+                        color: $gold;
+                    }
+                }
+
+                &:nth-of-type(2) {
+                    a {
+                        font-size: $fz-big;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*========================
+        main
+=========================*/
+
+main {
+    .container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        padding: 5vh 0;
+        background-color: purple;
+
+        figure {
+            img {
+                width: 100%;
+            }
+
+            &:nth-of-type(1) {
+                h2 {
+                    @include text-style(center, 30px, Helvetica, red);
+                }
+            }
+
+            &:nth-of-type(2) {
+                h2 {
+                    @include text-style(right, $fz-small, Arial, green);
+                }
+            }
+
+            &:nth-of-type(3) {
+                h2 {
+                    // Parameter nicht nutzen wollen 1
+                    @include text-style(left, "", Tahoma, $gold);
+                    // Parameter nicht nutzen wollen 2
+                    // @include text-style($ta: left, $ff: Tahoma, $fc: $gold);
+                }
+            }
+        }
+    }
+
+    // extend
+    // article die gleichen styles hat wie die section aber ich möchte ein anderen gap
+    // extend wird benutzt um bestehende css klassen zu erweitern, um eine oder mehrere properties anzupassen
+    article {
+        // display: grid;
+        // grid-template-columns: repeat(3, 1fr);
+        // padding: 5vh 0;
+        // gap: 30px;
+        @extend .container;
+        gap: 50px;
+        background-color: lime;
+    }
+}
+
+Footer © 2022 GitHub,
+Inc. Footer navigation Terms Privacy
